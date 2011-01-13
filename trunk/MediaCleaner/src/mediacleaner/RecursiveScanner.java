@@ -5,6 +5,7 @@
 package mediacleaner;
 
 import java.io.File;
+import java.util.ArrayList;
 
 /**
  *
@@ -16,6 +17,8 @@ public class RecursiveScanner
     static final int MAX_DEPTH = 20;  // Max 20 levels (directory nesting)
     static final String INDENT_STR = "   ";                 // Single indent.
     static final String[] INDENTS = new String[MAX_DEPTH]; // Indent array.
+    static ArrayList<String> fileExtensions = new ArrayList<String>();
+    static ArrayList<File> discoveredFiles = new ArrayList<File>();
 
     public RecursiveScanner(String directory)
     {
@@ -37,6 +40,11 @@ public class RecursiveScanner
         }
     }
 
+    /**
+     * This method will recursively scan through all files and folders in a given directory
+     * @param fdir
+     * @param depth
+     */
     public static void listRecursively(File fdir, int depth)
     {
         if (fdir.isDirectory() && depth < MAX_DEPTH)
@@ -48,30 +56,49 @@ public class RecursiveScanner
         }
         else if (fdir.isFile())
         {
-            FrmScanDirectory.currentlyScanning(fdir.getAbsolutePath());
-            String fileExtension = fdir.getName().toString();
+            //FrmScanDirectory.currentlyScanning(fdir.getAbsolutePath());
+            String fileName = fdir.getName().toString();
 
             if (!fdir.getAbsolutePath().contains("WINDOWS") && !fdir.getAbsolutePath().contains("Program Files"))
             {
-                if (fileExtension.endsWith(".mp3")
-                        || fileExtension.endsWith(".wma")
-                        || fileExtension.endsWith(".mpeg")
-                        || fileExtension.endsWith(".mpg")
-                        || fileExtension.endsWith(".avi")
-                        || fileExtension.endsWith(".mov")
-                        || fileExtension.endsWith(".vob")
-                        || fileExtension.endsWith(".3gp")
-                        || fileExtension.endsWith(".m4a")
-                        || fileExtension.endsWith(".aac")
-                        || fileExtension.endsWith(".m3u")
-                        || fileExtension.endsWith(".pls")
-                        || fileExtension.endsWith(".wpl"))
+                if (checkFileType(fileName))
                 {
-                    //System.out.println("File Found:" + fdir.getName().toString());
-                    FrmScanDirectory.addFile(fdir);
+                    discoveredFiles.add(fdir);
                 }
             }
-
         }
+    } //end listRecursively(File fdir, int depth)
+
+    /**
+     * This method checks if the file type is on the blacklist.
+     * @param fileName
+     */
+    private static boolean checkFileType(String fileName)
+    {
+        //Loop through all the selected file types.
+        for (String extension : fileExtensions)
+        {
+            //If the file extensions matches one on the list then the file is flagged
+            if (fileName.toLowerCase().endsWith(extension.toLowerCase()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void addExtension(String extension)
+    {
+        fileExtensions.add(extension);
+    }
+
+    public static void removeExtension(String extension)
+    {
+        fileExtensions.remove(extension);
+    }
+
+    public static void removeAllExtensions()
+    {
+        fileExtensions = new ArrayList<String>();
     }
 }

@@ -40,6 +40,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
     public FrmScanDirectory()
     {
         initComponents();
+        initializeExtensions();
     }
 
     /** This method is called from within the constructor to
@@ -51,7 +52,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        scanTabbedPane = new javax.swing.JTabbedPane();
         directoryPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txtSelectedDirectory = new javax.swing.JTextField();
@@ -60,8 +61,8 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
         cmdNext = new javax.swing.JButton();
         fileTypesPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        extensionsPanel = new javax.swing.JPanel();
+        musicPanel = new javax.swing.JPanel();
         chkMP3 = new javax.swing.JCheckBox();
         chkWMA = new javax.swing.JCheckBox();
         chkWAV = new javax.swing.JCheckBox();
@@ -69,12 +70,16 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
         chkM4A = new javax.swing.JCheckBox();
         chkAAC = new javax.swing.JCheckBox();
         chkMP4 = new javax.swing.JCheckBox();
-        jPanel3 = new javax.swing.JPanel();
+        videoPanel = new javax.swing.JPanel();
         chkAVI = new javax.swing.JCheckBox();
         chkMPG = new javax.swing.JCheckBox();
         chkVOB = new javax.swing.JCheckBox();
         chkMOV = new javax.swing.JCheckBox();
         chk3GP = new javax.swing.JCheckBox();
+        playlistPanel = new javax.swing.JPanel();
+        chkPLS = new javax.swing.JCheckBox();
+        chkWPL = new javax.swing.JCheckBox();
+        chkM3U = new javax.swing.JCheckBox();
         cmdCancel2 = new javax.swing.JButton();
         cmdNext2 = new javax.swing.JButton();
         scanPanel = new javax.swing.JPanel();
@@ -97,7 +102,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
         setFrameIcon(resourceMap.getIcon("Form.frameIcon")); // NOI18N
         setName("Form"); // NOI18N
 
-        jTabbedPane1.setName("jTabbedPane1"); // NOI18N
+        scanTabbedPane.setName("scanTabbedPane"); // NOI18N
 
         directoryPanel.setName("directoryPanel"); // NOI18N
 
@@ -134,7 +139,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
                     .addGroup(directoryPanelLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSelectedDirectory, javax.swing.GroupLayout.DEFAULT_SIZE, 345, Short.MAX_VALUE)
+                        .addComponent(txtSelectedDirectory, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmdBrowse))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, directoryPanelLayout.createSequentialGroup()
@@ -151,178 +156,225 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
                     .addComponent(jLabel1)
                     .addComponent(txtSelectedDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmdBrowse))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 319, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
                 .addGroup(directoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel)
                     .addComponent(cmdNext))
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab(resourceMap.getString("directoryPanel.TabConstraints.tabTitle"), resourceMap.getIcon("directoryPanel.TabConstraints.tabIcon"), directoryPanel, resourceMap.getString("directoryPanel.TabConstraints.tabToolTip")); // NOI18N
+        scanTabbedPane.addTab(resourceMap.getString("directoryPanel.TabConstraints.tabTitle"), resourceMap.getIcon("directoryPanel.TabConstraints.tabIcon"), directoryPanel, resourceMap.getString("directoryPanel.TabConstraints.tabToolTip")); // NOI18N
 
         fileTypesPanel.setName("fileTypesPanel"); // NOI18N
 
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
-        jPanel1.setName("jPanel1"); // NOI18N
+        extensionsPanel.setName("extensionsPanel"); // NOI18N
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), resourceMap.getString("jPanel2.border.title"))); // NOI18N
-        jPanel2.setName("jPanel2"); // NOI18N
+        musicPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), resourceMap.getString("musicPanel.border.title"))); // NOI18N
+        musicPanel.setName("musicPanel"); // NOI18N
 
+        chkMP3.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chkMP3.setSelected(true);
         chkMP3.setText(resourceMap.getString("chkMP3.text")); // NOI18N
         chkMP3.setToolTipText(resourceMap.getString("chkMP3.toolTipText")); // NOI18N
         chkMP3.setName("chkMP3"); // NOI18N
 
+        chkWMA.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chkWMA.setSelected(true);
         chkWMA.setText(resourceMap.getString("chkWMA.text")); // NOI18N
         chkWMA.setToolTipText(resourceMap.getString("chkWMA.toolTipText")); // NOI18N
         chkWMA.setName("chkWMA"); // NOI18N
 
+        chkWAV.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chkWAV.setSelected(true);
         chkWAV.setText(resourceMap.getString("chkWAV.text")); // NOI18N
         chkWAV.setToolTipText(resourceMap.getString("chkWAV.toolTipText")); // NOI18N
         chkWAV.setName("chkWAV"); // NOI18N
 
+        chkOGG.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chkOGG.setSelected(true);
         chkOGG.setText(resourceMap.getString("chkOGG.text")); // NOI18N
         chkOGG.setName("chkOGG"); // NOI18N
 
+        chkM4A.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chkM4A.setSelected(true);
         chkM4A.setText(resourceMap.getString("chkM4A.text")); // NOI18N
         chkM4A.setName("chkM4A"); // NOI18N
 
+        chkAAC.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chkAAC.setSelected(true);
         chkAAC.setText(resourceMap.getString("chkAAC.text")); // NOI18N
         chkAAC.setName("chkAAC"); // NOI18N
 
+        chkMP4.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chkMP4.setSelected(true);
         chkMP4.setText(resourceMap.getString("chkMP4.text")); // NOI18N
         chkMP4.setName("chkMP4"); // NOI18N
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout musicPanelLayout = new javax.swing.GroupLayout(musicPanel);
+        musicPanel.setLayout(musicPanelLayout);
+        musicPanelLayout.setHorizontalGroup(
+            musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(musicPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(musicPanelLayout.createSequentialGroup()
+                        .addComponent(chkMP3)
+                        .addGap(18, 18, 18)
+                        .addComponent(chkOGG)
+                        .addGap(18, 18, 18)
+                        .addComponent(chkMP4)
+                        .addGap(18, 18, 18)
+                        .addComponent(chkM4A)
+                        .addGap(18, 18, 18)
+                        .addComponent(chkWMA)
+                        .addGap(18, 18, 18)
+                        .addComponent(chkWAV))
+                    .addComponent(chkAAC))
+                .addContainerGap(27, Short.MAX_VALUE))
+        );
+        musicPanelLayout.setVerticalGroup(
+            musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(musicPanelLayout.createSequentialGroup()
+                .addGroup(musicPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(chkMP3)
+                    .addComponent(chkOGG)
+                    .addComponent(chkMP4)
+                    .addComponent(chkM4A)
                     .addComponent(chkWMA)
                     .addComponent(chkWAV))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chkAAC)
-                    .addComponent(chkM4A)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(chkOGG)
-                        .addGap(18, 18, 18)
-                        .addComponent(chkMP4)))
-                .addContainerGap(319, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(chkOGG)
-                            .addComponent(chkMP4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkM4A)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkAAC))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(chkMP3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkWMA)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkWAV)))
+                .addComponent(chkAAC)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), resourceMap.getString("jPanel3.border.title"))); // NOI18N
-        jPanel3.setName("jPanel3"); // NOI18N
+        videoPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), resourceMap.getString("videoPanel.border.title"))); // NOI18N
+        videoPanel.setName("videoPanel"); // NOI18N
 
+        chkAVI.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chkAVI.setSelected(true);
         chkAVI.setText(resourceMap.getString("chkAVI.text")); // NOI18N
         chkAVI.setToolTipText(resourceMap.getString("chkAVI.toolTipText")); // NOI18N
         chkAVI.setName("chkAVI"); // NOI18N
 
+        chkMPG.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chkMPG.setSelected(true);
         chkMPG.setText(resourceMap.getString("chkMPG.text")); // NOI18N
         chkMPG.setToolTipText(resourceMap.getString("chkMPG.toolTipText")); // NOI18N
         chkMPG.setName("chkMPG"); // NOI18N
 
+        chkVOB.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chkVOB.setSelected(true);
         chkVOB.setText(resourceMap.getString("chkVOB.text")); // NOI18N
         chkVOB.setToolTipText(resourceMap.getString("chkVOB.toolTipText")); // NOI18N
         chkVOB.setName("chkVOB"); // NOI18N
 
+        chkMOV.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chkMOV.setSelected(true);
         chkMOV.setText(resourceMap.getString("chkMOV.text")); // NOI18N
         chkMOV.setName("chkMOV"); // NOI18N
 
+        chk3GP.setAction(actionMap.get("checkFileExtensions")); // NOI18N
         chk3GP.setSelected(true);
         chk3GP.setText(resourceMap.getString("chk3GP.text")); // NOI18N
         chk3GP.setName("chk3GP"); // NOI18N
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout videoPanelLayout = new javax.swing.GroupLayout(videoPanel);
+        videoPanel.setLayout(videoPanelLayout);
+        videoPanelLayout.setHorizontalGroup(
+            videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(videoPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chkAVI)
-                    .addComponent(chkMPG)
-                    .addComponent(chkVOB))
+                .addComponent(chkAVI)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(chk3GP)
-                    .addComponent(chkMOV))
-                .addContainerGap(386, Short.MAX_VALUE))
+                .addComponent(chkMOV)
+                .addGap(10, 10, 10)
+                .addComponent(chkMPG)
+                .addGap(18, 18, 18)
+                .addComponent(chk3GP)
+                .addGap(18, 18, 18)
+                .addComponent(chkVOB)
+                .addContainerGap(110, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(chkMOV)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chk3GP)
-                        .addGap(20, 20, 20))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(chkAVI)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkMPG)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chkVOB)))
-                .addContainerGap(14, Short.MAX_VALUE))
+        videoPanelLayout.setVerticalGroup(
+            videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(videoPanelLayout.createSequentialGroup()
+                .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkAVI)
+                    .addComponent(chkMOV)
+                    .addComponent(chkMPG)
+                    .addComponent(chk3GP)
+                    .addComponent(chkVOB))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        playlistPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), resourceMap.getString("playlistPanel.border.title"))); // NOI18N
+        playlistPanel.setName("playlistPanel"); // NOI18N
+
+        chkPLS.setAction(actionMap.get("checkFileExtensions")); // NOI18N
+        chkPLS.setSelected(true);
+        chkPLS.setText(resourceMap.getString("chkPLS.text")); // NOI18N
+        chkPLS.setName("chkPLS"); // NOI18N
+
+        chkWPL.setAction(actionMap.get("checkFileExtensions")); // NOI18N
+        chkWPL.setSelected(true);
+        chkWPL.setText(resourceMap.getString("chkWPL.text")); // NOI18N
+        chkWPL.setName("chkWPL"); // NOI18N
+
+        chkM3U.setAction(actionMap.get("checkFileExtensions")); // NOI18N
+        chkM3U.setSelected(true);
+        chkM3U.setText(resourceMap.getString("chkM3U.text")); // NOI18N
+        chkM3U.setName("chkM3U"); // NOI18N
+
+        javax.swing.GroupLayout playlistPanelLayout = new javax.swing.GroupLayout(playlistPanel);
+        playlistPanel.setLayout(playlistPanelLayout);
+        playlistPanelLayout.setHorizontalGroup(
+            playlistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(playlistPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(chkPLS)
+                .addGap(18, 18, 18)
+                .addComponent(chkWPL)
+                .addGap(18, 18, 18)
+                .addComponent(chkM3U)
+                .addContainerGap(228, Short.MAX_VALUE))
+        );
+        playlistPanelLayout.setVerticalGroup(
+            playlistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(playlistPanelLayout.createSequentialGroup()
+                .addGroup(playlistPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(chkPLS)
+                    .addComponent(chkWPL)
+                    .addComponent(chkM3U))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout extensionsPanelLayout = new javax.swing.GroupLayout(extensionsPanel);
+        extensionsPanel.setLayout(extensionsPanelLayout);
+        extensionsPanelLayout.setHorizontalGroup(
+            extensionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(extensionsPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(extensionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(musicPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(videoPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(playlistPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        extensionsPanelLayout.setVerticalGroup(
+            extensionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(extensionsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(musicPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addComponent(videoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(playlistPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
-        jScrollPane1.setViewportView(jPanel1);
+        jScrollPane1.setViewportView(extensionsPanel);
 
         cmdCancel2.setAction(actionMap.get("cancel")); // NOI18N
         cmdCancel2.setText(resourceMap.getString("cmdCancel2.text")); // NOI18N
@@ -337,25 +389,25 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
         fileTypesPanelLayout.setHorizontalGroup(
             fileTypesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fileTypesPanelLayout.createSequentialGroup()
-                .addContainerGap(354, Short.MAX_VALUE)
+                .addContainerGap(253, Short.MAX_VALUE)
                 .addComponent(cmdNext2)
                 .addGap(18, 18, 18)
                 .addComponent(cmdCancel2)
                 .addContainerGap())
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 441, Short.MAX_VALUE)
         );
         fileTypesPanelLayout.setVerticalGroup(
             fileTypesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fileTypesPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 349, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(fileTypesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel2)
                     .addComponent(cmdNext2))
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab(resourceMap.getString("fileTypesPanel.TabConstraints.tabTitle"), resourceMap.getIcon("fileTypesPanel.TabConstraints.tabIcon"), fileTypesPanel, resourceMap.getString("fileTypesPanel.TabConstraints.tabToolTip")); // NOI18N
+        scanTabbedPane.addTab(resourceMap.getString("fileTypesPanel.TabConstraints.tabTitle"), resourceMap.getIcon("fileTypesPanel.TabConstraints.tabIcon"), fileTypesPanel, resourceMap.getString("fileTypesPanel.TabConstraints.tabToolTip")); // NOI18N
 
         scanPanel.setName("scanPanel"); // NOI18N
 
@@ -369,7 +421,15 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
             new String [] {
                 "Delete", "File Name", "Path"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         tblResults.setName("tblResults"); // NOI18N
         jScrollPane2.setViewportView(tblResults);
         tblResults.getColumnModel().getColumn(0).setHeaderValue(resourceMap.getString("tblResults.columnModel.title0")); // NOI18N
@@ -406,19 +466,19 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, scanPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(scanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
                     .addGroup(scanPanelLayout.createSequentialGroup()
                         .addComponent(cmdDeleteFile)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmdExport)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                         .addComponent(cmdScan)
                         .addGap(18, 18, 18)
                         .addComponent(cmdClose))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, scanPanelLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCuttrentlyScanning, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)))
+                        .addComponent(txtCuttrentlyScanning, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         scanPanelLayout.setVerticalGroup(
@@ -429,17 +489,17 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
                     .addComponent(jLabel2)
                     .addComponent(txtCuttrentlyScanning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(scanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmdClose)
                     .addComponent(cmdDeleteFile)
                     .addComponent(cmdScan)
-                    .addComponent(cmdExport))
+                    .addComponent(cmdExport)
+                    .addComponent(cmdClose))
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab(resourceMap.getString("scanPanel.TabConstraints.tabTitle"), resourceMap.getIcon("scanPanel.TabConstraints.tabIcon"), scanPanel, resourceMap.getString("scanPanel.TabConstraints.tabToolTip")); // NOI18N
+        scanTabbedPane.addTab(resourceMap.getString("scanPanel.TabConstraints.tabTitle"), resourceMap.getIcon("scanPanel.TabConstraints.tabIcon"), scanPanel, resourceMap.getString("scanPanel.TabConstraints.tabToolTip")); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -447,14 +507,14 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 547, Short.MAX_VALUE)
+                .addComponent(scanTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 446, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+                .addComponent(scanTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -475,7 +535,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
     @Action
     public void Next()
     {
-        jTabbedPane1.setSelectedIndex(jTabbedPane1.getSelectedIndex() + 1);
+        scanTabbedPane.setSelectedIndex(scanTabbedPane.getSelectedIndex() + 1);
     }
 
     @Action(block = Task.BlockingScope.COMPONENT)
@@ -553,7 +613,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
             TableColumnAdjuster tca = new TableColumnAdjuster(tblResults);
             tca.adjustColumns();
 
-            currentlyScanning("Done Scanning!");
+            //currentlyScanning("Done Scanning!");
             setMessage("Done Loading Results");
         }
     }
@@ -576,16 +636,6 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
                 Logger.getLogger(FrmScanDirectory.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-
-    public static void addFile(java.io.File foundFile)
-    {
-        fileList.add(foundFile);
-    }
-
-    public static void currentlyScanning(String pathName)
-    {
-        txtCuttrentlyScanning.setText(pathName);
     }
 
     @Action
@@ -616,9 +666,6 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
                     }
                 }
             }
-            else
-            {
-            }
         }
 
         @Override
@@ -642,6 +689,86 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
         {
             String message = "The file deletion process has been completed.";
             JOptionPane.showMessageDialog(rootPane, message, "iMediaCleaner", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
+    private void initializeExtensions()
+    {
+        checkFileExtensions();
+    }
+
+    @Action
+    public void checkFileExtensions()
+    {
+        //Remove all items from the list
+        RecursiveScanner.removeAllExtensions();
+
+        //Music Group
+        if (chkM4A.isSelected())
+        {
+            RecursiveScanner.addExtension(".M4A");
+        }
+        if (chkAAC.isSelected())
+        {
+            RecursiveScanner.addExtension(".AAC");
+        }
+        if (chkMP3.isSelected())
+        {
+            RecursiveScanner.addExtension(".MP3");
+        }
+        if (chkOGG.isSelected())
+        {
+            RecursiveScanner.addExtension(".OGG");
+        }
+        if (chkWAV.isSelected())
+        {
+            RecursiveScanner.addExtension(".WAV");
+        }
+        if (chkWMA.isSelected())
+        {
+            RecursiveScanner.addExtension(".WMA");
+        }
+
+        //Video Group
+        if (chk3GP.isSelected())
+        {
+            RecursiveScanner.addExtension(".3GP");
+        }
+        if (chkAVI.isSelected())
+        {
+            RecursiveScanner.addExtension(".AVI");
+        }
+        if (chkMOV.isSelected())
+        {
+            RecursiveScanner.addExtension(".MOV");
+        }
+        if (chkMP4.isSelected())
+        {
+            RecursiveScanner.addExtension(".MP4");
+        }
+        if (chkMPG.isSelected())
+        {
+            RecursiveScanner.addExtension(".MPG");
+            RecursiveScanner.addExtension(".MPEG");
+        }
+        if (chkVOB.isSelected())
+        {
+            RecursiveScanner.addExtension(".VOB");
+        }
+
+
+        //Playlist Group
+        if (chkPLS.isSelected())
+        {
+            RecursiveScanner.addExtension(".PLS");
+        }
+        if (chkWPL.isSelected())
+        {
+            RecursiveScanner.addExtension(".WPL");
+        }
+        if (chkM3U.isSelected())
+        {
+            RecursiveScanner.addExtension(".M3U");
         }
     }
 
@@ -695,7 +822,8 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
             }
             catch (IOException e)
             {
-                e.printStackTrace();
+                String message = "An error ocurred while exporting the results to a file.";
+                Logger.getLogger(FrmScanDirectory.class.getName()).log(Level.SEVERE, message, e);
             }
         }
     }
@@ -703,15 +831,18 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
     private javax.swing.JCheckBox chk3GP;
     private javax.swing.JCheckBox chkAAC;
     private javax.swing.JCheckBox chkAVI;
+    private javax.swing.JCheckBox chkM3U;
     private javax.swing.JCheckBox chkM4A;
     private javax.swing.JCheckBox chkMOV;
     private javax.swing.JCheckBox chkMP3;
     private javax.swing.JCheckBox chkMP4;
     private javax.swing.JCheckBox chkMPG;
     private javax.swing.JCheckBox chkOGG;
+    private javax.swing.JCheckBox chkPLS;
     private javax.swing.JCheckBox chkVOB;
     private javax.swing.JCheckBox chkWAV;
     private javax.swing.JCheckBox chkWMA;
+    private javax.swing.JCheckBox chkWPL;
     private javax.swing.JButton cmdBrowse;
     private javax.swing.JButton cmdCancel;
     private javax.swing.JButton cmdCancel2;
@@ -722,18 +853,19 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
     private javax.swing.JButton cmdNext2;
     private javax.swing.JButton cmdScan;
     private javax.swing.JPanel directoryPanel;
+    private javax.swing.JPanel extensionsPanel;
     private javax.swing.JPanel fileTypesPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JPanel musicPanel;
+    private javax.swing.JPanel playlistPanel;
     private javax.swing.JPanel scanPanel;
+    private javax.swing.JTabbedPane scanTabbedPane;
     private javax.swing.JTable tblResults;
     private static javax.swing.JTextField txtCuttrentlyScanning;
     private javax.swing.JTextField txtSelectedDirectory;
+    private javax.swing.JPanel videoPanel;
     // End of variables declaration//GEN-END:variables
 }

@@ -31,7 +31,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" pref="547" max="32767" attributes="0"/>
+              <Component id="scanTabbedPane" pref="446" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -40,16 +40,16 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPane1" pref="421" max="32767" attributes="0"/>
+              <Component id="scanTabbedPane" pref="405" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+    <Container class="javax.swing.JTabbedPane" name="scanTabbedPane">
       <Properties>
-        <Property name="name" type="java.lang.String" value="jTabbedPane1" noResource="true"/>
+        <Property name="name" type="java.lang.String" value="scanTabbedPane" noResource="true"/>
       </Properties>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
@@ -77,7 +77,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtSelectedDirectory" pref="345" max="32767" attributes="0"/>
+                              <Component id="txtSelectedDirectory" pref="244" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="cmdBrowse" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -100,7 +100,7 @@
                           <Component id="txtSelectedDirectory" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmdBrowse" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="319" max="32767" attributes="0"/>
+                      <EmptySpace pref="303" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="cmdCancel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmdNext" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -174,20 +174,20 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="354" max="32767" attributes="0"/>
+                      <EmptySpace pref="253" max="32767" attributes="0"/>
                       <Component id="cmdNext2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="cmdCancel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jScrollPane1" alignment="0" pref="542" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" pref="441" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane1" pref="349" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" pref="328" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="cmdCancel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmdNext2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -205,19 +205,20 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Container class="javax.swing.JPanel" name="jPanel1">
+                <Container class="javax.swing.JPanel" name="extensionsPanel">
                   <Properties>
-                    <Property name="name" type="java.lang.String" value="jPanel1" noResource="true"/>
+                    <Property name="name" type="java.lang.String" value="extensionsPanel" noResource="true"/>
                   </Properties>
 
                   <Layout>
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="musicPanel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="videoPanel" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="playlistPanel" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -227,16 +228,18 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+                              <Component id="musicPanel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="123" max="32767" attributes="0"/>
+                              <Component id="videoPanel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="playlistPanel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="43" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
                   </Layout>
                   <SubComponents>
-                    <Container class="javax.swing.JPanel" name="jPanel2">
+                    <Container class="javax.swing.JPanel" name="musicPanel">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -244,59 +247,51 @@
                               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
                               </Border>
-                              <Property name="titleX" resourceKey="jPanel2.border.title"/>
+                              <Property name="titleX" resourceKey="musicPanel.border.title"/>
                             </TitledBorder>
                           </Border>
                         </Property>
-                        <Property name="name" type="java.lang.String" value="jPanel2" noResource="true"/>
+                        <Property name="name" type="java.lang.String" value="musicPanel" noResource="true"/>
                       </Properties>
 
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="chkMP3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="chkWMA" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="chkWAV" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="chkAAC" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="chkM4A" min="-2" max="-2" attributes="0"/>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="chkMP3" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="chkOGG" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Component id="chkMP4" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="chkM4A" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="chkWMA" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace min="18" pref="18" max="-2" attributes="0"/>
+                                          <Component id="chkWAV" min="-2" max="-2" attributes="0"/>
                                       </Group>
+                                      <Component id="chkAAC" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="319" max="32767" attributes="0"/>
+                                  <EmptySpace pref="27" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Group type="103" groupAlignment="3" attributes="0">
-                                              <Component id="chkOGG" alignment="3" min="-2" max="-2" attributes="0"/>
-                                              <Component id="chkMP4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="chkM4A" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="chkAAC" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="chkMP3" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="chkWMA" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="chkWAV" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="chkMP3" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chkOGG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chkMP4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chkM4A" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chkWMA" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chkWAV" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="chkAAC" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -305,6 +300,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JCheckBox" name="chkMP3">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chkMP3.text"/>
                             <Property name="toolTipText" type="java.lang.String" resourceKey="chkMP3.toolTipText"/>
@@ -313,6 +311,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chkWMA">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chkWMA.text"/>
                             <Property name="toolTipText" type="java.lang.String" resourceKey="chkWMA.toolTipText"/>
@@ -321,6 +322,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chkWAV">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chkWAV.text"/>
                             <Property name="toolTipText" type="java.lang.String" resourceKey="chkWAV.toolTipText"/>
@@ -329,6 +333,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chkOGG">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chkOGG.text"/>
                             <Property name="name" type="java.lang.String" value="chkOGG" noResource="true"/>
@@ -336,6 +343,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chkM4A">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chkM4A.text"/>
                             <Property name="name" type="java.lang.String" value="chkM4A" noResource="true"/>
@@ -343,6 +353,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chkAAC">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chkAAC.text"/>
                             <Property name="name" type="java.lang.String" value="chkAAC" noResource="true"/>
@@ -350,6 +363,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chkMP4">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chkMP4.text"/>
                             <Property name="name" type="java.lang.String" value="chkMP4" noResource="true"/>
@@ -357,7 +373,7 @@
                         </Component>
                       </SubComponents>
                     </Container>
-                    <Container class="javax.swing.JPanel" name="jPanel3">
+                    <Container class="javax.swing.JPanel" name="videoPanel">
                       <Properties>
                         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
                           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -365,11 +381,11 @@
                               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
                                 <EtchetBorder/>
                               </Border>
-                              <Property name="titleX" resourceKey="jPanel3.border.title"/>
+                              <Property name="titleX" resourceKey="videoPanel.border.title"/>
                             </TitledBorder>
                           </Border>
                         </Property>
-                        <Property name="name" type="java.lang.String" value="jPanel3" noResource="true"/>
+                        <Property name="name" type="java.lang.String" value="videoPanel" noResource="true"/>
                       </Properties>
 
                       <Layout>
@@ -377,39 +393,30 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="chkAVI" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="chkMPG" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="chkVOB" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
+                                  <Component id="chkAVI" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="chk3GP" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="chkMOV" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace pref="386" max="32767" attributes="0"/>
+                                  <Component id="chkMOV" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                                  <Component id="chkMPG" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="chk3GP" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="chkVOB" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="110" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
                         <DimensionLayout dim="1">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="chkMOV" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="chk3GP" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="chkAVI" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="chkMPG" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="chkVOB" min="-2" max="-2" attributes="0"/>
-                                      </Group>
+                              <Group type="102" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="chkAVI" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chkMOV" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chkMPG" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chk3GP" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chkVOB" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace pref="14" max="32767" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -417,6 +424,9 @@
                       <SubComponents>
                         <Component class="javax.swing.JCheckBox" name="chkAVI">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chkAVI.text"/>
                             <Property name="toolTipText" type="java.lang.String" resourceKey="chkAVI.toolTipText"/>
@@ -425,6 +435,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chkMPG">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chkMPG.text"/>
                             <Property name="toolTipText" type="java.lang.String" resourceKey="chkMPG.toolTipText"/>
@@ -433,6 +446,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chkVOB">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chkVOB.text"/>
                             <Property name="toolTipText" type="java.lang.String" resourceKey="chkVOB.toolTipText"/>
@@ -441,6 +457,9 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chkMOV">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chkMOV.text"/>
                             <Property name="name" type="java.lang.String" value="chkMOV" noResource="true"/>
@@ -448,9 +467,87 @@
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chk3GP">
                           <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
                             <Property name="selected" type="boolean" value="true"/>
                             <Property name="text" type="java.lang.String" resourceKey="chk3GP.text"/>
                             <Property name="name" type="java.lang.String" value="chk3GP" noResource="true"/>
+                          </Properties>
+                        </Component>
+                      </SubComponents>
+                    </Container>
+                    <Container class="javax.swing.JPanel" name="playlistPanel">
+                      <Properties>
+                        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                          <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
+                            <TitledBorder title="Playlists">
+                              <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                                <EtchetBorder/>
+                              </Border>
+                              <Property name="titleX" resourceKey="playlistPanel.border.title"/>
+                            </TitledBorder>
+                          </Border>
+                        </Property>
+                        <Property name="name" type="java.lang.String" value="playlistPanel" noResource="true"/>
+                      </Properties>
+
+                      <Layout>
+                        <DimensionLayout dim="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="chkPLS" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="chkWPL" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="chkM3U" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace pref="228" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                        <DimensionLayout dim="1">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="chkPLS" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chkWPL" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="chkM3U" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="34" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                        </DimensionLayout>
+                      </Layout>
+                      <SubComponents>
+                        <Component class="javax.swing.JCheckBox" name="chkPLS">
+                          <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
+                            <Property name="selected" type="boolean" value="true"/>
+                            <Property name="text" type="java.lang.String" resourceKey="chkPLS.text"/>
+                            <Property name="name" type="java.lang.String" value="chkPLS" noResource="true"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JCheckBox" name="chkWPL">
+                          <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
+                            <Property name="selected" type="boolean" value="true"/>
+                            <Property name="text" type="java.lang.String" resourceKey="chkWPL.text"/>
+                            <Property name="name" type="java.lang.String" value="chkWPL" noResource="true"/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JCheckBox" name="chkM3U">
+                          <Properties>
+                            <Property name="action" type="javax.swing.Action" editor="org.netbeans.modules.swingapp.ActionEditor">
+                              <action class="mediacleaner.FrmScanDirectory" id="checkFileExtensions" methodName="checkFileExtensions"/>
+                            </Property>
+                            <Property name="selected" type="boolean" value="true"/>
+                            <Property name="text" type="java.lang.String" resourceKey="chkM3U.text"/>
+                            <Property name="name" type="java.lang.String" value="chkM3U" noResource="true"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -499,20 +596,20 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jScrollPane2" alignment="0" pref="522" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" alignment="0" pref="421" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="cmdDeleteFile" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="cmdExport" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="114" max="32767" attributes="0"/>
+                              <EmptySpace pref="13" max="32767" attributes="0"/>
                               <Component id="cmdScan" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="cmdClose" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtCuttrentlyScanning" pref="423" max="32767" attributes="0"/>
+                              <Component id="txtCuttrentlyScanning" pref="322" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -522,21 +619,21 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtCuttrentlyScanning" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="296" max="-2" attributes="0"/>
-                      <EmptySpace pref="22" max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" pref="291" max="32767" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cmdClose" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmdDeleteFile" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmdScan" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmdExport" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmdClose" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -555,7 +652,7 @@
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="3" rowCount="0">
                         <Column editable="true" title="Delete" type="java.lang.Object"/>
-                        <Column editable="true" title="File Name" type="java.lang.Object"/>
+                        <Column editable="false" title="File Name" type="java.lang.Object"/>
                         <Column editable="true" title="Path" type="java.lang.Object"/>
                       </Table>
                     </Property>
