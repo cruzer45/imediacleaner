@@ -10,6 +10,8 @@ import org.jdesktop.application.FrameView;
 import org.jdesktop.application.TaskMonitor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Timer;
 import javax.swing.Icon;
 import javax.swing.JDialog;
@@ -21,9 +23,7 @@ import javax.swing.JInternalFrame;
  */
 public class MediaCleanerView extends FrameView
 {
-
     FrmScanDirectory frmScanDirectory = null;
-    
 
     public MediaCleanerView(SingleFrameApplication app)
     {
@@ -36,7 +36,7 @@ public class MediaCleanerView extends FrameView
         getFrame().setIconImage(resourceMap.getImageIcon("Frame.icon").getImage());
 
         // status bar initialization - message timeout, idle icon and busy animation, etc
-        
+
         int messageTimeout = resourceMap.getInteger("StatusBar.messageTimeout");
         messageTimer = new Timer(messageTimeout, new ActionListener()
         {
@@ -108,6 +108,9 @@ public class MediaCleanerView extends FrameView
         });
     }
 
+    /**
+     * Show the about dialog.
+     */
     @Action
     public void showAboutBox()
     {
@@ -145,6 +148,8 @@ public class MediaCleanerView extends FrameView
 
         mainPanel.setName("mainPanel"); // NOI18N
 
+        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(mediacleaner.MediaCleanerApp.class).getContext().getResourceMap(MediaCleanerView.class);
+        desktopPane.setBackground(resourceMap.getColor("desktopPane.background")); // NOI18N
         desktopPane.setName("desktopPane"); // NOI18N
 
         javax.swing.GroupLayout mainPanelLayout = new javax.swing.GroupLayout(mainPanel);
@@ -155,12 +160,11 @@ public class MediaCleanerView extends FrameView
         );
         mainPanelLayout.setVerticalGroup(
             mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 248, Short.MAX_VALUE)
+            .addComponent(desktopPane, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
         );
 
         menuBar.setName("menuBar"); // NOI18N
 
-        org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(mediacleaner.MediaCleanerApp.class).getContext().getResourceMap(MediaCleanerView.class);
         fileMenu.setText(resourceMap.getString("fileMenu.text")); // NOI18N
         fileMenu.setName("fileMenu"); // NOI18N
 
@@ -204,7 +208,7 @@ public class MediaCleanerView extends FrameView
             .addGroup(statusPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(statusMessageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
                 .addComponent(progressBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(statusAnimationLabel)
@@ -240,9 +244,9 @@ public class MediaCleanerView extends FrameView
      *
      * @param FormTitle
      * @return True if a loaded frame contains the specified string in title.
-     * False if no frames contains the specified string.
+     * @return False if no frames contains the specified string.
      */
-    protected boolean isLoaded(String FormTitle)
+    protected boolean isFormLoaded(String FormTitle)
     {
         JInternalFrame Form[] = desktopPane.getAllFrames();
         for (int i = 0; i < Form.length; i++)
@@ -257,7 +261,8 @@ public class MediaCleanerView extends FrameView
                 }
                 catch (Exception e)
                 {
-                    e.printStackTrace();
+                    String message = "An error occurred while loading the window.";
+                    Logger.getLogger(MediaCleanerView.class.getName()).log(Level.SEVERE, message, e);
                 }
                 return true;
             }
@@ -265,12 +270,14 @@ public class MediaCleanerView extends FrameView
         return false;
     }
 
+    /**
+     * Loads the form and makes it visible.
+     */
     @Action
     public void scanDirectory()
     {
         //Verify if the form is already loaded
-        boolean AlreadyLoaded = isLoaded("Scan Directory");
-        if (AlreadyLoaded == false)
+        if (!isFormLoaded("Scan Directory"))
         {
             frmScanDirectory = new FrmScanDirectory();
             desktopPane.add(frmScanDirectory);
@@ -285,19 +292,8 @@ public class MediaCleanerView extends FrameView
             }
             catch (Exception e)
             {
-                e.printStackTrace();
-            }
-        }
-        else
-        {
-            try
-            {
-                frmScanDirectory.setIcon(false);
-                frmScanDirectory.setSelected(true);
-            }
-            catch (Exception e)
-            {
-                e.printStackTrace();
+                String message = "An error occurred while loading the 'Scan Directory' window.";
+                Logger.getLogger(MediaCleanerView.class.getName()).log(Level.SEVERE, message, e);
             }
         }
     }

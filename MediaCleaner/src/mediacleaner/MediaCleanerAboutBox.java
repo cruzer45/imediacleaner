@@ -38,6 +38,12 @@ public class MediaCleanerAboutBox extends javax.swing.JDialog {
         javax.swing.JLabel appHomepageLabel = new javax.swing.JLabel();
         javax.swing.JLabel versionLabel = new javax.swing.JLabel();
         javax.swing.JLabel appDescLabel = new javax.swing.JLabel();
+        licensePanel = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtLicense = new javax.swing.JTextArea();
+        iconPanel = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         org.jdesktop.application.ResourceMap resourceMap = org.jdesktop.application.Application.getInstance(mediacleaner.MediaCleanerApp.class).getContext().getResourceMap(MediaCleanerAboutBox.class);
@@ -105,8 +111,8 @@ public class MediaCleanerAboutBox extends javax.swing.JDialog {
                             .addComponent(appVendorLabel)
                             .addComponent(appHomepageLabel)))
                     .addComponent(appTitleLabel)
-                    .addComponent(appDescLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE)
-                    .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 352, Short.MAX_VALUE))
+                    .addComponent(appDescLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
+                    .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE))
                 .addContainerGap())
         );
         generalPanelLayout.setVerticalGroup(
@@ -135,6 +141,57 @@ public class MediaCleanerAboutBox extends javax.swing.JDialog {
 
         infoTabbedPane.addTab(resourceMap.getString("generalPanel.TabConstraints.tabTitle"), generalPanel); // NOI18N
 
+        licensePanel.setName("licensePanel"); // NOI18N
+
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        txtLicense.setColumns(20);
+        txtLicense.setEditable(false);
+        txtLicense.setRows(5);
+        txtLicense.setText(resourceMap.getString("txtLicense.text")); // NOI18N
+        txtLicense.setToolTipText(resourceMap.getString("txtLicense.toolTipText")); // NOI18N
+        txtLicense.setCaretPosition(1);
+        txtLicense.setName("txtLicense"); // NOI18N
+        jScrollPane1.setViewportView(txtLicense);
+
+        javax.swing.GroupLayout licensePanelLayout = new javax.swing.GroupLayout(licensePanel);
+        licensePanel.setLayout(licensePanelLayout);
+        licensePanelLayout.setHorizontalGroup(
+            licensePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+        );
+        licensePanelLayout.setVerticalGroup(
+            licensePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+        );
+
+        infoTabbedPane.addTab(resourceMap.getString("licensePanel.TabConstraints.tabTitle"), licensePanel); // NOI18N
+
+        iconPanel.setName("iconPanel"); // NOI18N
+
+        jScrollPane2.setName("jScrollPane2"); // NOI18N
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setEditable(false);
+        jTextArea1.setRows(5);
+        jTextArea1.setText(resourceMap.getString("jTextArea1.text")); // NOI18N
+        jTextArea1.setCaretPosition(1);
+        jTextArea1.setName("jTextArea1"); // NOI18N
+        jScrollPane2.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout iconPanelLayout = new javax.swing.GroupLayout(iconPanel);
+        iconPanel.setLayout(iconPanelLayout);
+        iconPanelLayout.setHorizontalGroup(
+            iconPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+        );
+        iconPanelLayout.setVerticalGroup(
+            iconPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
+        );
+
+        infoTabbedPane.addTab(resourceMap.getString("iconPanel.TabConstraints.tabTitle"), iconPanel); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,27 +199,34 @@ public class MediaCleanerAboutBox extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(closeButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(infoTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 377, Short.MAX_VALUE))
+                    .addComponent(infoTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 560, Short.MAX_VALUE)
+                    .addComponent(closeButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(infoTabbedPane)
-                .addGap(18, 18, 18)
+                .addComponent(infoTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 364, Short.MAX_VALUE)
+                .addGap(11, 11, 11)
                 .addComponent(closeButton)
                 .addContainerGap())
         );
 
-        pack();
+        java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
+        setBounds((screenSize.width-596)/2, (screenSize.height-460)/2, 596, 460);
     }// </editor-fold>//GEN-END:initComponents
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton closeButton;
     private javax.swing.JPanel generalPanel;
+    private javax.swing.JPanel iconPanel;
     private javax.swing.JTabbedPane infoTabbedPane;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JPanel licensePanel;
+    private javax.swing.JTextArea txtLicense;
     // End of variables declaration//GEN-END:variables
     
 }
