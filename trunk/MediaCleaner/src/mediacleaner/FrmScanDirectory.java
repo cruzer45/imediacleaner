@@ -22,7 +22,6 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import org.jdesktop.application.Action;
 import org.jdesktop.application.Task;
 
@@ -34,7 +33,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
 {
 
     File selectedFile;
-    private static ArrayList<File> fileList = new ArrayList<File>();
+  
 
     /** Creates new form FrmScanDirectory */
     public FrmScanDirectory()
@@ -156,7 +155,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
                     .addComponent(jLabel1)
                     .addComponent(txtSelectedDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cmdBrowse))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 303, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 311, Short.MAX_VALUE)
                 .addGroup(directoryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel)
                     .addComponent(cmdNext))
@@ -347,7 +346,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
                     .addComponent(chkPLS)
                     .addComponent(chkWPL)
                     .addComponent(chkM3U))
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout extensionsPanelLayout = new javax.swing.GroupLayout(extensionsPanel);
@@ -371,7 +370,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
                 .addComponent(videoPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(playlistPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(78, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(extensionsPanel);
@@ -399,7 +398,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
         fileTypesPanelLayout.setVerticalGroup(
             fileTypesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, fileTypesPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(fileTypesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdCancel2)
@@ -489,7 +488,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
                     .addComponent(jLabel2)
                     .addComponent(txtCuttrentlyScanning, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(scanPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdDeleteFile)
@@ -514,7 +513,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scanTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 405, Short.MAX_VALUE)
+                .addComponent(scanTabbedPane, javax.swing.GroupLayout.DEFAULT_SIZE, 413, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -575,39 +574,8 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
         protected void succeeded(Object result)
         {
             setMessage("Loading Results");
-            DefaultTableModel model = new DefaultTableModel()
-            {
 
-                @Override
-                public Class getColumnClass(int columnIndex)
-                {
-                    Object o = getValueAt(0, columnIndex);
-                    if (o == null)
-                    {
-                        return Object.class;
-                    }
-                    else
-                    {
-                        return o.getClass();
-                    }
-                }
-            };
-
-            model.addColumn("Delete");
-            model.addColumn("File Name");
-            model.addColumn("Path");
-
-            for (int i = 0; i < fileList.size(); i++)
-            {
-                File currentfile = fileList.get(i);
-
-                model.addRow(new Object[]
-                        {
-                            true, currentfile.getName(), currentfile.getAbsolutePath()
-                        });
-            }
-
-            tblResults.setModel(model);
+            tblResults.setModel(RecursiveScanner.loadResults());
 
             tblResults.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
             TableColumnAdjuster tca = new TableColumnAdjuster(tblResults);
@@ -778,8 +746,9 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
         File exportFile = null;
 
         String scanDate = new SimpleDateFormat("MMMMM dd, yyyy hh:mm aaa").format(new java.util.Date());
-        String noOfResults = String.valueOf(fileList.size());
-        String computername = "";
+        String noOfResults = String.valueOf(RecursiveScanner.noOfFiles());
+        String computerName = "";
+        String ipAddress = "";
 
         JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
@@ -789,12 +758,15 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
             exportFile = fc.getSelectedFile();
             try
             {
-                computername = InetAddress.getLocalHost().getHostName();
+                computerName = InetAddress.getLocalHost().getHostName();
+                ipAddress = InetAddress.getLocalHost().getHostAddress();
 
                 BufferedWriter writer = new BufferedWriter(new FileWriter(exportFile));
                 writer.write("iMediaCleaner Scan");
                 writer.newLine();
-                writer.write("Computer Name: " + computername);
+                writer.write("Computer Name: " + computerName);
+                writer.newLine();
+                writer.write("IP Address: " + ipAddress);
                 writer.newLine();
                 writer.write("Scan Date: " + scanDate);
                 writer.newLine();
@@ -804,6 +776,8 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
                 writer.write("Below are those results.");
                 writer.newLine();
                 writer.newLine();
+
+                ArrayList<File> fileList = RecursiveScanner.getDiscoveredFiles();
 
                 for (int i = 0; i < fileList.size(); i++)
                 {
@@ -864,7 +838,7 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
     private javax.swing.JPanel scanPanel;
     private javax.swing.JTabbedPane scanTabbedPane;
     private javax.swing.JTable tblResults;
-    private static javax.swing.JTextField txtCuttrentlyScanning;
+    private javax.swing.JTextField txtCuttrentlyScanning;
     private javax.swing.JTextField txtSelectedDirectory;
     private javax.swing.JPanel videoPanel;
     // End of variables declaration//GEN-END:variables
