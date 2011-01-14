@@ -6,6 +6,7 @@ package mediacleaner;
 
 import java.io.File;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,9 +20,29 @@ public class RecursiveScanner
     static final String[] INDENTS = new String[MAX_DEPTH]; // Indent array.
     static ArrayList<String> fileExtensions = new ArrayList<String>();
     static ArrayList<File> discoveredFiles = new ArrayList<File>();
+    private static boolean isScanning = false;
+
+    /**
+     * @return the isScanning
+     */
+    public static boolean isIsScanning()
+    {
+        return isScanning;
+    }
+
+    /**
+     * @param aIsScanning the isScanning to set
+     */
+    public static void setIsScanning(boolean aIsScanning)
+    {
+        isScanning = aIsScanning;
+    }
 
     public RecursiveScanner(String directory)
     {
+        isScanning = true;
+        discoveredFiles = new ArrayList<File>();
+
         //... Initialize array of indentations.
         INDENTS[0] = INDENT_STR;
         for (int i = 1; i < MAX_DEPTH; i++)
@@ -38,6 +59,7 @@ public class RecursiveScanner
         {
             System.out.println("Not a directory: " + root);
         }
+        isScanning = false;
     }
 
     /**
@@ -100,5 +122,51 @@ public class RecursiveScanner
     public static void removeAllExtensions()
     {
         fileExtensions = new ArrayList<String>();
+    }
+
+    public static DefaultTableModel loadResults()
+    {
+        DefaultTableModel model = new DefaultTableModel()
+        {
+
+            @Override
+            public Class getColumnClass(int columnIndex)
+            {
+                Object o = getValueAt(0, columnIndex);
+                if (o == null)
+                {
+                    return Object.class;
+                }
+                else
+                {
+                    return o.getClass();
+                }
+            }
+        };
+
+        model.addColumn("Delete");
+        model.addColumn("File Name");
+        model.addColumn("Path");
+
+        for (int i = 0; i < discoveredFiles.size(); i++)
+        {
+            File currentfile = discoveredFiles.get(i);
+
+            model.addRow(new Object[]
+                    {
+                        true, currentfile.getName(), currentfile.getAbsolutePath()
+                    });
+        }
+        return model;
+    }
+
+    public static int noOfFiles()
+    {
+        return discoveredFiles.size();
+    }
+
+    public static ArrayList<File> getDiscoveredFiles()
+    {
+        return discoveredFiles;
     }
 }
