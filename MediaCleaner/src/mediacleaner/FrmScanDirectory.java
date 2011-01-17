@@ -1,9 +1,4 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/*
  * FrmScanDirectory.java
  *
  * Created on Sep 27, 2010, 11:55:02 AM
@@ -33,7 +28,6 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
 {
 
     File selectedFile;
-  
 
     /** Creates new form FrmScanDirectory */
     public FrmScanDirectory()
@@ -639,7 +633,6 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
         @Override
         protected Object doInBackground()
         {
-
             setMessage("Deleting Files.");
             for (int i = 0; i < fileDeleteList.size(); i++)
             {
