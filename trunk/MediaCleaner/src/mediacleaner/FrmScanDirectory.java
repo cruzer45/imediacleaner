@@ -534,6 +534,23 @@ public class FrmScanDirectory extends javax.swing.JInternalFrame
     @Action(block = Task.BlockingScope.COMPONENT)
     public Task scan()
     {
+        tblResults.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Delete", "File Name", "Path"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, false, true
+            };
+
+            @Override
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         return new ScanTask(org.jdesktop.application.Application.getInstance(mediacleaner.MediaCleanerApp.class));
     }
 
